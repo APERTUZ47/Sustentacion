@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #003366;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #003366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0059b3;
+        }
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .success {
+            color: green;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pago Seguro</h1>
+    </header>
+    <section>
+        <h1>Detalles de Pago</h1>
+        <form id="payment-form">
+            <div id="message" class="error" style="display: none;">Datos incorrectos, por favor revisa los campos.</div>
+            <div id="success" class="success" style="display: none;">Compra exitosa. Redirigiendo a la página principal...</div>
+
+            <label for="card-name">Nombre en la Tarjeta</label>
+            <input type="text" id="card-name" placeholder="Ejemplo: Juan Pérez" required>
+
+            <label for="card-number">Número de la Tarjeta</label>
+            <input type="text" id="card-number" placeholder="0000 0000 0000" maxlength="12" required>
+
+            <label for="expiry-date">Fecha de Expiración</label>
+            <input type="text" id="expiry-date" placeholder="MM/AA" maxlength="5" required>
+
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" placeholder="000" maxlength="3" required>
+
+            <button type="button" id="pay-button">Pagar Ahora</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById("pay-button").addEventListener("click", function () {
+            const name = document.getElementById("card-name").value.trim();
+            const cardNumber = document.getElementById("card-number").value.trim();
+            const expiryDate = document.getElementById("expiry-date").value.trim();
+            const cvv = document.getElementById("cvv").value.trim();
+
+            // Validaciones ajustadas
+            const nameRegex = /^[a-zA-Z]+\s[a-zA-Z]+$/; // Dos palabras
+            const cardNumberRegex = /^\d{12}$/; // 12 dígitos
+            const expiryRegex = /^(0[1-9]|1[0-2])\/\d{2}$/; // MM/AA
+            const cvvRegex = /^\d{3}$/; // 3 dígitos
+
+            const messageDiv = document.getElementById("message");
+            const successDiv = document.getElementById("success");
+
+            if (
+                !nameRegex.test(name) ||
+                !cardNumberRegex.test(cardNumber) ||
+                !expiryRegex.test(expiryDate) ||
+                !cvvRegex.test(cvv)
+            ) {
+                messageDiv.style.display = "block";
+                successDiv.style.display = "none";
+            } else {
+                messageDiv.style.display = "none";
+                successDiv.style.display = "block";
+
+                setTimeout(() => {
+                    window.location.href = "AllMenuOptions.html"; 
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

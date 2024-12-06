@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vender</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background-color: #003366; color: white; padding: 10px; text-align: center; }
+        section { margin: 20px; }
+        h1 { color: #003366; }
+        form { max-width: 400px; margin: auto; }
+        label { display: block; margin: 10px 0 5px; }
+        input, textarea, button { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background-color: #003366; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0059b3; }
+        .message { color: green; text-align: center; font-weight: bold; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header><h1>Vender</h1></header>
+    <section>
+        <h1>Publicar tu Producto</h1>
+        <form id="sellForm">
+            <label for="product-name">Nombre del Producto</label>
+            <input type="text" id="product-name" placeholder="Introduce el nombre del producto" required>
+
+            <label for="price">Precio</label>
+            <input type="text" id="price" placeholder="Introduce el precio" required>
+
+            <label for="description">Descripción</label>
+            <textarea id="description" placeholder="Describe tu producto" required></textarea>
+
+            <label for="image">Subir Imagen (solo formato PNG)</label>
+            <input type="file" id="image" accept="image/png" required>
+
+            <button type="submit">Publicar</button>
+        </form>
+        <div id="successMessage" class="message" style="display: none;">¡Tu aeromodelo ha sido puesto a la venta!</div>
+    </section>
+
+    <script>
+        document.getElementById("sellForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            
+            const productName = document.getElementById("product-name").value.trim();
+            const price = document.getElementById("price").value.trim();
+            const description = document.getElementById("description").value.trim();
+            const image = document.getElementById("image").files.length;
+
+            if (productName && price && description && image) {
+                
+                document.getElementById("successMessage").style.display = "block";
+
+            
+                document.getElementById("sellForm").reset();
+            } else {
+                alert("Por favor, completa todos los campos antes de publicar tu producto.");
+            }
+        });
+    </script>
+</body>
+</html>

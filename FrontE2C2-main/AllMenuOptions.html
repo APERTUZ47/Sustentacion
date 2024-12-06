@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeromodelos en Venta</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0057a3;
+        }
+        nav .menu {
+            display: flex;
+            gap: 20px;
+        }
+        nav .menu a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+        nav .menu a:hover {
+            text-decoration: underline;
+        }
+        nav .buttons {
+            display: flex;
+            gap: 10px;
+        }
+        nav .buttons a {
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        nav .buttons .sell {
+            background-color: #66bb6a;
+            color: white;
+        }
+        nav .buttons .register {
+            background-color: #66bb6a;
+            color: white;
+        }
+        nav .buttons .login {
+            background-color: transparent;
+            color: #0057a3;
+            border: none;
+        }
+        header {
+            background-color: #002f5b;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        header p {
+            font-size: 18px;
+            margin: 10px 0 0;
+        }
+        .highlight-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .highlight-gallery img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            border: 2px solid #ddd;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .highlight-gallery .label {
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+        .filter-section {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+        }
+        .filter-section h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">Aeroseneca</div>
+        <div class="menu">
+            <a href="Comprar.html">Comprar</a>
+            <a href="Vender.html">Vender</a>
+            <a href="Elementos.html">Elementos</a>
+            <a href="Empresas.html">Empresas</a>
+            <a href="Categoria.html">Categorias</a>
+        </div>
+        <div class="buttons">
+            <a href="IniciarSesion.html" class="login">Iniciar Sesión</a>
+            <a href="Registrarse.html" class="register">Registrarse</a>
+        </div>
+    </nav>
+
+  
+    <header>
+        <h1>Bienvenido a Aeroseneca
+        <p>Encuentra los mejores aeromodelos a los mejores precios.</p>
+    </header>
+
+   
+    <section class="filter-section">
+        <h2>Elementos Destacados</h2>
+        <div class="highlight-gallery">
+            <div>
+                <img src="assets/images/1003.png" alt="UH-60 Black Hawk">
+                <div class="label">UH-60 Black Hawk</div>
+            </div>
+            <div>
+                <img src="assets/images/1005.png" alt="F-16 Falcon">
+                <div class="label">F-16 Falcon</div>
+            </div>
+            <div>
+                <img src="assets/images/1007.png" alt="Cessna 172">
+                <div class="label">Cessna 172</div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
